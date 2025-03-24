@@ -1,55 +1,52 @@
-# Company Detector Chrome Extension
+# Boykotyap Chrome Eklentisi
 
-This open-source Chrome extension detects specific company names on web pages and displays a notification image when they are found.
+Boykotyap, belirli Türk şirketlerini web sayfalarında tespit eden ve kullanıcıyı bilgilendiren bir Chrome eklentisidir.
 
-## Features
+## Ne İşe Yarar?
 
-- Scans web page content for specific company names
-- Displays a 200x200 notification image in the top-right corner when a match is found
-- Includes a close button to dismiss the notification
-- Works on all websites
-- Monitors for dynamically loaded content
+Bu eklenti, belirlenen şirketlerin web sitelerinde veya içeriğinde gezinirken sizi uyarır. Bir web sayfasında veya domain adında listedeki şirketlerden biri tespit edildiğinde, ekranın sağ üst köşesinde bir bildirim gösterilir.
 
-## Companies Detected
+## Boykot Listesi
 
-The extension currently detects the following companies:
-- EspressoLab
-- D&R
-- Idefix
-- Demirören AVM
-- Kilim Mobilya
-- Ülker
-- Türk Petrol
-- Milangaz - Likitgaz
-- İhlas Ev Aletleri
-- ETS Tur
-- Milli Piyango
-- Misli.com
-- İddia
-- Misli
+Eklenti aşağıdaki şirketleri tespit eder:
+- espressoLab
+- d&r
+- idefix
+- demiron
+- kilim mobilya
+- ülker
+- türk petrol
+- milangaz
+- likitgaz
+- ihlas
+- ets tur
+- milli piyango
+- misli
+- iddaa
+- cnn türk
 
-## Installation
+## Neden Boykotyap?
 
-1. Clone or download this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top-right corner
-4. Click "Load unpacked" and select the extension directory
-5. The extension is now installed and active
+Bu eklenti, CHP Genel Başkanı Özgür Özel'in 24 Mart 2025 tarihinde açıkladığı boykot listesindeki şirketleri tespit etmek amacıyla geliştirilmiştir. Özel, "Parayı bizden kazanıp, sadece saraya hizmet yok. Boykot et!" çağrısında bulunmuştur.
 
-## Usage
+## Nasıl Kullanılır?
 
-The extension works automatically in the background. When you visit a web page that contains any of the listed company names, a notification image will appear in the top-right corner of the page.
+1. Eklentiyi Chrome'a yükleyin
+2. Herhangi bir web sitesini ziyaret edin
+3. Eğer ziyaret ettiğiniz site veya içerik boykot listesindeki bir şirkete aitse, sağ üst köşede bir bildirim görünecektir
 
-## Customization
+## Kurulum
 
-To change the notification image, replace the file at `images/notification.png` with your own 200x200 image.
+1. Bu repoyu bilgisayarınıza indirin
+2. Chrome tarayıcınızda `chrome://extensions/` adresine gidin
+3. "Geliştirici modu"nu açın
+4. "Paketlenmemiş öğe yükle" butonuna tıklayın
+5. İndirdiğiniz klasörü seçin
 
-To modify the list of detected companies, edit the `companies` array in the `content.js` file.
+## Katkıda Bulunma
 
-## Contributing
+Boykot listesine eklemek istediğiniz şirketler veya eklentiye eklemek istediğiniz özellikler için pull request gönderebilirsiniz.
 
-Contributions are welcome! Feel free to submit pull requests or open issues to improve the extension.
+## Lisans
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+Bu proje MIT lisansı altında lisanslanmıştır.
