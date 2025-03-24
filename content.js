@@ -1,20 +1,26 @@
-// List of companies to detect
-const companies = [
-  'espressoLab',
-  'd&r',
-  'idefix',
-  'demiron',
-  'kilim mobilya',
-  'ülker',
-  'türk petrol',
-  'milangaz',
-  'likitgaz',
-  'ihlas',
-  'ets tur',
-  'milli piyango',
-  'misli',
-  'iddaa',
-  'cnn türk'
+// List of domains to detect
+const domains = [
+  "espressolab.com.tr",
+  "dr.com.tr",
+  "idefix.com",
+  "demiroren.com.tr",
+  "kilimmobilya.com.tr",
+  "ulker.com.tr",
+  "turkpetrol.com.tr",
+  "milangaz.com.tr",
+  "likitgaz.com.tr",
+  "ihlas.com.tr",
+  "etstur.com",
+  "millipiyangoonline.com",
+  "misli.com",
+  "iddaa.com",
+  "cnnturk.com",
+  "milliyet.com.tr",
+  "gazetevatan.com",
+  "fanatik.com.tr",
+  "hurriyet.com.tr",
+  "hurriyetdailynews.com",
+  "posta.com.tr"
 ];
 
 // Function to normalize text for comparison
@@ -30,48 +36,19 @@ function normalizeText(text) {
     .replace(/ç/g, 'c');
 }
 
-// Function to check if any company name exists in the page content or domain
+// Function to check if current domain is in the list
 function detectCompanies() {
   if (!document.body) {
     setTimeout(detectCompanies, 100);
     return;
   }
   
-  const bodyText = document.body.innerText.toLowerCase();
-  const currentUrl = window.location.href.toLowerCase();
   const currentDomain = window.location.hostname.toLowerCase();
   
-  const normalizedDomain = normalizeText(currentDomain);
-  
-  // Check domain first
-  for (const company of companies) {
-    const normalizedCompany = normalizeText(company);
-    
-    if (normalizedDomain.includes(normalizedCompany) || 
-        normalizedDomain === normalizedCompany ||
-        normalizedDomain.startsWith(normalizedCompany + '.') ||
-        normalizedDomain.endsWith('.' + normalizedCompany)) {
-      displayNotification();
-      return;
-    }
-  }
-  
-  // Check URL as well
-  const normalizedUrl = normalizeText(currentUrl);
-  for (const company of companies) {
-    const normalizedCompany = normalizeText(company);
-    if (normalizedUrl.includes(normalizedCompany)) {
-      displayNotification();
-      return;
-    }
-  }
-  
-  // Check page content
-  for (const company of companies) {
-    const normalizedCompany = normalizeText(company);
-    const normalizedBodyText = normalizeText(bodyText);
-    
-    if (normalizedBodyText.includes(normalizedCompany)) {
+  // Check if current domain matches or is a subdomain of any domain in the list
+  for (const domain of domains) {
+    if (currentDomain === domain || 
+        currentDomain.endsWith('.' + domain)) {
       displayNotification();
       return;
     }
