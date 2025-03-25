@@ -11,9 +11,19 @@
       background-color: #ff0000;
       color: white;
     }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .logo {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
     h1 {
       font-size: 18px;
-      margin-bottom: 10px;
+      margin: 0;
     }
     .company-list {
       max-height: 200px;
@@ -36,43 +46,57 @@
       background-color: rgba(255, 255, 255, 0.2);
       border-radius: 4px;
       margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    .company-name {
+      font-weight: bold;
+    }
+    .company-urls {
+      margin-left: 10px;
+      font-size: 0.9em;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 3px;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: background-color 0.3s;
+    }
+    .footer a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Boykotyap</h1>
-  <p>Parayı bizden kazanıp, sadece saraya hizmet yok. Boykot et! Güncel domain listesi şöyledir:</p>
+  <div class="header">
+    <img src="images/icon48.png" alt="Boykotyap Logo" class="logo">
+    <h1>Boykotyap</h1>
+  </div>
+  <p>Parayı bizden kazanıp, sadece saraya hizmet yok. Boykot et! Güncel şirket listesi şöyledir:</p>
   
   <div class="company-list">
-    <ul>
-      <li>espressolab.com.tr</li>
-      <li>dr.com.tr</li>
-      <li>idefix.com</li>
-      <li>demiroren.com.tr</li>
-      <li>kilimmobilya.com.tr</li>
-      <li>ulker.com.tr</li>
-      <li>turkpetrol.com.tr</li>
-      <li>milangaz.com.tr</li>
-      <li>likitgaz.com.tr</li>
-      <li>ihlas.com.tr</li>
-      <li>etstur.com</li>
-      <li>millipiyangoonline.com</li>
-      <li>misli.com</li>
-      <li>iddaa.com</li>
-      <li>cnnturk.com</li>
-      <li>milliyet.com.tr</li>
-      <li>gazetevatan.com</li>
-      <li>fanatik.com.tr</li>
-      <li>hurriyet.com.tr</li>
-      <li>hurriyetdailynews.com</li>
-      <li>posta.com.tr</li>
+    <ul id="companies-list">
+      <!-- List will be dynamically populated by JavaScript -->
     </ul>
   </div>
   
   <div class="status">
     Eklenti aktif ve mevcut sayfayı izliyor.
   </div>
+  
+  <div class="footer">
+    <a href="http://boykotyap.com/" target="_blank">Boykotun resmi sitesi: boykotyap.com</a>
+  </div>
 
+  <!-- Import the shared domains list first -->
+  <script src="domains.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>
