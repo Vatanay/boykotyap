@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/icon128.png" alt="Boykotyap Logo" width="128" height="128">
+</p>
+
 # Boykotyap Chrome Eklentisi
 
 Boykotyap, belirli Türk şirketlerini web sayfalarında tespit eden ve kullanıcıyı bilgilendiren bir Chrome eklentisidir.
@@ -9,21 +13,24 @@ Bu eklenti, belirlenen şirketlerin web sitelerinde veya içeriğinde gezinirken
 ## Boykot Listesi
 
 Eklenti aşağıdaki şirketleri tespit eder:
-- espressoLab
-- d&r
-- idefix
-- demiron
-- kilim mobilya
-- ülker
-- türk petrol
-- milangaz
-- likitgaz
-- ihlas
-- ets tur
-- milli piyango
-- misli
-- iddaa
-- cnn türk
+- EspressoLab
+- D&R
+- İdefix
+- Demirören AVM
+- Kilim Mobilya
+- Ülker
+- TRT
+- CNN Türk
+- Fanatik
+- TGRT
+- İhlas Ev Aletleri
+- Turkuaz Yayınevi
+- Milli Piyango
+- misli.com
+- iddia.com
+- ETS Tur
+- DHA
+- İHA
 
 ## Neden Boykotyap?
 
