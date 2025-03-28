@@ -3,8 +3,11 @@
   "name": "Boykotyap",
   "version": "1.0",
   "description": "Parayı bizden kazanıp, sadece saraya hizmet yok. Boykot et!",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage"],
   "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -16,7 +19,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["domains.js", "content.js"],
+      "js": ["domains.js", "stats.js", "content.js"],
       "run_at": "document_start"
     }
   ],
