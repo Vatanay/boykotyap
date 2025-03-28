@@ -1,6 +1,9 @@
 // Import domains list from shared file
 const domains = window.domainsList || [];
 
+// Sayfada tespit edilen şirketleri takip etmek için set
+const detectedCompanies = new Set();
+
 // Function to extract domain from URL
 function extractDomain(url) {
   try {
@@ -26,6 +29,12 @@ function detectCompanies() {
   // Check if current domain matches any domain in the list
   for (const companyObj of domains) {
     const companyName = Object.keys(companyObj)[0];
+    
+    // Eğer bu şirket zaten tespit edildiyse, tekrar işleme
+    if (detectedCompanies.has(companyName)) {
+      continue;
+    }
+    
     const companyUrls = companyObj[companyName];
     
     for (const url of companyUrls) {
@@ -39,6 +48,15 @@ function detectCompanies() {
         
         if (username && username.length > 0 && currentFullUrl.includes('/' + username)) {
           displayNotification(companyName);
+          // Record the encounter in statistics
+          try {
+            BoykotStats.recordEncounter(companyName);
+            // Şirketi tespit edildi olarak işaretle
+            detectedCompanies.add(companyName);
+            console.log('[BoykotDetector] Şirket tespit edildi ve kaydedildi:', companyName);
+          } catch (error) {
+            console.error('[BoykotDetector] İstatistik kaydedilirken hata:', error);
+          }
           return;
         }
       }
@@ -48,6 +66,15 @@ function detectCompanies() {
         
         if (currentDomain === domainToCheck || currentDomain.endsWith('.' + domainToCheck)) {
           displayNotification(companyName);
+          // Record the encounter in statistics
+          try {
+            BoykotStats.recordEncounter(companyName);
+            // Şirketi tespit edildi olarak işaretle
+            detectedCompanies.add(companyName);
+            console.log('[BoykotDetector] Şirket tespit edildi ve kaydedildi:', companyName);
+          } catch (error) {
+            console.error('[BoykotDetector] İstatistik kaydedilirken hata:', error);
+          }
           return;
         }
       }
